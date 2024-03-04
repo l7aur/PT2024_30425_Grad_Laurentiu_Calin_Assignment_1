@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.gui.MainFrame;
 import org.example.processing.Polynomial;
 import org.example.processing.StringPolynomial;
 
@@ -12,11 +13,7 @@ public class App {
 
     }
     public void startApp() {
-        /*
-        * For the moment
-        * Read a string
-        * convert it into a map of degree -> coeff
-        * */
+
         StringPolynomial dummyPoly = new StringPolynomial();
         StringPolynomial dummyPoly1 = new StringPolynomial();
 
@@ -27,8 +24,8 @@ public class App {
 
         scanner.close();
 
-        ArrayList<String> arrayList = dummyPoly.tokenize();
-        ArrayList<String> arrayList1 = dummyPoly1.tokenize();
+        dummyPoly.tokenize();
+        dummyPoly1.tokenize();
 
         Polynomial polynomial1 = new Polynomial(1000);
         Polynomial polynomial2 = new Polynomial(1000);
@@ -51,6 +48,9 @@ public class App {
         System.out.print("integration result:");
         Polynomial p4 = polynomial1.integrate();
         p4.printPolynomial();
+
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.makePublic();
 
     }
     public void quitApp() {

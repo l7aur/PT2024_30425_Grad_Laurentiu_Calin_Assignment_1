@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class StringPolynomial {
     private String stringPoly;
-    private ArrayList<String> tokens;
+    final private ArrayList<String> tokens;
 
     public StringPolynomial() {
         this.stringPoly = "";
@@ -19,7 +19,7 @@ public class StringPolynomial {
         this.stringPoly = string;
     }
 
-    public ArrayList<String> tokenize() {
+    public void tokenize() {
         for (Pattern pattern : Patterns.patterns) {
             Matcher matcher = pattern.matcher(stringPoly);
             while (matcher.find()){
@@ -29,7 +29,6 @@ public class StringPolynomial {
         }
         if(!stringPoly.isEmpty())
             System.out.println("please check");
-        return tokens;
     }
 
     public Map<Integer, Integer> getPolyMapping() {
