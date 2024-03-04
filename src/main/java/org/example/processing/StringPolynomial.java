@@ -3,7 +3,6 @@ package org.example.processing;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,9 +15,8 @@ public class StringPolynomial {
         this.tokens = new ArrayList<>();
     }
 
-    public void read() {
-        Scanner myScanner = new Scanner(System.in);
-        stringPoly = myScanner.nextLine();
+    public void read(String string) {
+        this.stringPoly = string;
     }
 
     public ArrayList<String> tokenize() {
@@ -56,7 +54,7 @@ public class StringPolynomial {
             if(token.charAt(index) == 'X') index++;
             else {
                 degree = 0;
-//                System.out.println("postprocess: " + degree + " " + coefficient);
+//                System.out.println("postprocess: " + degree + " " + sign * coefficient);
                 map.put(degree, sign * coefficient);
                 continue;
             }
@@ -67,7 +65,7 @@ public class StringPolynomial {
 //            System.out.println("postprocess: " + degree + " " + coefficient);
             map.put(degree, sign * coefficient);
         }
-        map.forEach((x,y)-> System.out.println(x + " " + y));
+//        map.forEach((x,y)-> System.out.println(x + " " + y));
         return map;
     }
     private Pair<Integer, Integer> convertToInteger(String string, Integer index) {
@@ -80,5 +78,8 @@ public class StringPolynomial {
             }while (string.charAt(index) >= '0' && string.charAt(index) <= '9');
         }
         return new Pair<Integer, Integer>(answ, index);
+    }
+    public void print(){
+        System.out.println(stringPoly);
     }
 }

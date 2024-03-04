@@ -1,9 +1,8 @@
 package org.example.processing;
 
-import jdk.jshell.EvalException;
-
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Polynomial {
     private Map<Integer, Integer> degreeToCoefficient;
@@ -18,12 +17,18 @@ public class Polynomial {
         Polynomial polynomial = new Polynomial(1000);
         polynomial.degreeToCoefficient.putAll(this.degreeToCoefficient);
         polynomial2.degreeToCoefficient.forEach((key, value) ->
-                polynomial.degreeToCoefficient.replace(key, polynomial.degreeToCoefficient.get(key) + value));
+        {
+            Integer oldValue = polynomial.degreeToCoefficient.get(key);
+            if(oldValue == null) oldValue = 0;
+            polynomial.degreeToCoefficient.put(key, oldValue + value);
+        });
+//        polynomial.degreeToCoefficient.forEach((x,y) -> System.out.print(y + " * X^" + x + " "));
+//        this.degreeToCoefficient.forEach((x,y) -> System.out.print(y + " * X^" + x + " "));
         return polynomial;
     }
     public Polynomial substract(Polynomial polynomial2) {
-        Polynomial negatedPoly =  this.negate();
-        return negatedPoly.add(polynomial2);
+        Polynomial negatedPoly =  polynomial2.negate();
+        return negatedPoly.add(this);
 
     }
     public Polynomial negate() {
@@ -31,18 +36,55 @@ public class Polynomial {
         return this;
     }
     public Polynomial divide(Polynomial polynomial2) {
-
+        //todo
         return null;
     }
     public Polynomial derivate() {
+        Polynomial answPoly = new Polynomial(1000);
+        this.degreeToCoefficient.forEach((key, value) ->
+        {
+            if(key > 0) {
+                value *= key;
+                key--;
 
-        return null;
+                answPoly.degreeToCoefficient.put(key, value);
+            }
+            else
+                answPoly.degreeToCoefficient.put(0,0);
+        });
+        return answPoly;
     }
     public Polynomial integrate() {
-
-        return null;
+        Polynomial answPoly = new Polynomial(1000);
+        this.degreeToCoefficient.forEach((key, value) ->
+        {
+            key++;
+            value /= key;
+            answPoly.degreeToCoefficient.put(key, value);
+        });
+        return answPoly;
     }
     public void printPolynomial() {
-        degreeToCoefficient.forEach((x,y)-> System.out.println("Degree " + x + " --> " + y));
+        AtomicBoolean printFlag = new AtomicBoolean(false);
+        this.degreeToCoefficient.forEach((x,y) ->
+        {
+            if(y > 0) {
+                System.out.print("+" + y);
+                printFlag.set(true);
+            }
+            else if(y < 0) {
+                System.out.print(y);
+                printFlag.set(true);
+            }
+            if(x != 0) {
+                System.out.print(" X^" + x + " ");
+                printFlag.set(true);
+            }
+            else
+                System.out.print(" ");
+        });
+        if(!printFlag.getAcquire())
+            System.out.print("0");
+        System.out.println();
     }
 }
