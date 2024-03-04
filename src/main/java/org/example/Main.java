@@ -2,6 +2,8 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("dsaladgbuaf");
+        App polynomialCalculator = new App();
+        polynomialCalculator.startApp();
+        polynomialCalculator.quitApp();
     }
 }
