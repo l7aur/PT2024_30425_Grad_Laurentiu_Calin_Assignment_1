@@ -4,14 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class InputPanel extends JPanel {
-    private JTextField field1;
-    private JTextField field2;
+    private JLabel label;
     public InputPanel() {
         super();
         this.setBackground(Color.pink);
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.field1 = new JTextField();
-        this.field2 = new JTextField();
+        this.setLayout(new GridBagLayout());
+        this.label = new JLabel("dasda");
     }
     public GridBagConstraints getConstraints(Insets insets) {
         GridBagConstraints constraints = new GridBagConstraints();
@@ -24,12 +22,16 @@ public class InputPanel extends JPanel {
     }
     public void setPanelUI() {
         this.setPreferredSize(new Dimension(400,400));
-        this.addVFiller();
-        this.add(this.field1);
-        this.addVFiller();
-        this.add(this.field2);
+        Insets insets = new Insets(5,5,5,5);
+        ReadPanel rPanel = new ReadPanel();
+        rPanel.addTextFields();
+        this.add(rPanel, rPanel.getConstraints(insets));
+
+        OutputPanel outputPanel = new OutputPanel();
+        outputPanel.setPaneUI();
+        this.add(outputPanel, outputPanel.getConstraints(insets));
+
+
     }
-    private void addVFiller() {
-        this.add(Box.createVerticalGlue());
-    }
+
 }

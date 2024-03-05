@@ -2,7 +2,6 @@ package org.example.gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.ImagingOpException;
 
 public class MainFrame extends JFrame {
     private final Container mainPane;
@@ -24,15 +23,15 @@ public class MainFrame extends JFrame {
     public void setPaneUI() {
         Insets insets = new Insets(5,5,5,5);
         InputPanel inputPanel = new InputPanel();
-        OutputPanel outputPanel = new OutputPanel();
+        CalcPanel calcPanel = new CalcPanel();
 
         GridBagConstraints iPanelConstraints = inputPanel.getConstraints(insets);
-        GridBagConstraints oPanelConstraints = outputPanel.getConstraints(insets);
+        GridBagConstraints cPanelConstraints = calcPanel.getConstraints(insets);
 
         inputPanel.setPanelUI();
-        outputPanel.setPaneUI();
+        calcPanel.setPaneUI();
 
         mainPane.add(inputPanel, iPanelConstraints);
-        mainPane.add(outputPanel, oPanelConstraints);
+        mainPane.add(calcPanel, cPanelConstraints);
     }
 }
