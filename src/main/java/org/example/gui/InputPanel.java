@@ -5,12 +5,19 @@ import java.awt.*;
 
 public class InputPanel extends JPanel {
     private JLabel label;
+    private OutputPanel outputPanel;
     public InputPanel() {
         super();
         this.setBackground(Color.pink);
         this.setLayout(new GridBagLayout());
         this.label = new JLabel("dasda");
+        this.outputPanel = new OutputPanel();
     }
+
+    public OutputPanel getOutputPanel() {
+            return outputPanel;
+    }
+
     public GridBagConstraints getConstraints(Insets insets) {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = insets;
@@ -26,12 +33,8 @@ public class InputPanel extends JPanel {
         ReadPanel rPanel = new ReadPanel();
         rPanel.addTextFields();
         this.add(rPanel, rPanel.getConstraints(insets));
-
-        OutputPanel outputPanel = new OutputPanel();
-        outputPanel.setPaneUI();
-        this.add(outputPanel, outputPanel.getConstraints(insets));
-
-
+        this.outputPanel.setPaneUI();
+        this.add(this.outputPanel, this.outputPanel.getConstraints(insets));
     }
 
 }

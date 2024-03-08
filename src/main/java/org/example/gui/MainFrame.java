@@ -23,7 +23,7 @@ public class MainFrame extends JFrame {
     public void setPaneUI() {
         Insets insets = new Insets(5,5,5,5);
         InputPanel inputPanel = new InputPanel();
-        CalcPanel calcPanel = new CalcPanel();
+        CalcPanel calcPanel = new CalcPanel(inputPanel);
 
         GridBagConstraints iPanelConstraints = inputPanel.getConstraints(insets);
         GridBagConstraints cPanelConstraints = calcPanel.getConstraints(insets);

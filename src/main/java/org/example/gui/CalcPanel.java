@@ -9,12 +9,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CalcPanel extends JPanel {
-
+    private InputPanel inputPanel;
     private ArrayList<JButton> buttons;
     private ArrayList<String> buttonNames;
     private ArrayList<Pair<Integer, Integer>> pos;
-    public CalcPanel() {
+    public CalcPanel(InputPanel inputPanel) {
         super();
+        this.inputPanel = inputPanel;
         this.setName("Polynomial Calculator");
         this.setPreferredSize(new Dimension(400, 400));
         this.setLayout(new GridBagLayout());
@@ -38,8 +39,8 @@ public class CalcPanel extends JPanel {
         ArrayList<String> buttonNames = this.getNames();
         ArrayList<Pair<Integer, Integer>> pos = this.getPositions();
         for (int index = 0; index < buttonNames.size(); index++) {
-            JButton b = new JButton(buttonNames.get(index));
-//            b.addActionListener(new MyActionListener());//todo
+            MyButton b = new MyButton(buttonNames.get(index));
+            b.addActionListener(new MyActionListener(this.inputPanel.getOutputPanel(), b.getOperation()));//todo
             buttons.add(b);
             this.add(b, getButtonConstraints(insets, pos.get(index).getFirst(), pos.get(index).getSecond()));
         }
@@ -57,7 +58,7 @@ public class CalcPanel extends JPanel {
     public ArrayList<String> getNames() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Addition");
-        arrayList.add("Substraction");
+        arrayList.add("Subtraction");
         arrayList.add("Multiplication");
         arrayList.add("Division");
         arrayList.add("Derivation");

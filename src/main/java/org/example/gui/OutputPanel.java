@@ -12,6 +12,13 @@ public class OutputPanel extends JPanel {
         this.outputText = new JLabel("RESULT");
     }
 
+    public void setOutputText(JLabel outputText) {
+        this.outputText = outputText;
+    }
+
+    public JLabel getOutputText() {
+        return this.outputText;
+    }
     public GridBagConstraints getConstraints(Insets insets) {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = insets;
@@ -32,13 +39,17 @@ public class OutputPanel extends JPanel {
             if(component instanceof JLabel)
                 this.remove(component);
         }
-        this.outputText = new JLabel(string);
-        this.outputText.setPreferredSize(new Dimension(350,40));
+//        this.outputText = new JLabel(string);
+        this.outputText = new JLabel("masina");
+        this.outputText.setPreferredSize(new Dimension(100,40));
+        this.outputText.setBackground(Color.black);
         this.addVFiller();
         this.add(this.outputText);
         this.addVFiller();
+        this.repaint();
+        System.out.println("refreshed panel");
     }
-    private void addVFiller() {
+    public void addVFiller() {
         this.add(Box.createVerticalGlue());
     }
 }
