@@ -35,7 +35,7 @@ public class OutputPanel extends JPanel {
     }
 
     public void refreshPanel(String string) {
-        this.outputText.setText(string);
+        this.outputText.setText("<html>" + string + "</html>"); //wrap the text
         this.repaint();
     }
     public void addVFiller() {

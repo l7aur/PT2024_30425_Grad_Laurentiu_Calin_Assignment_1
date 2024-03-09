@@ -10,6 +10,9 @@ public class Polynomial {
     public Polynomial(Integer initialSize) {
         this.degreeToCoefficient = new HashMap<>(initialSize);
     }
+    public Polynomial() {
+        this.degreeToCoefficient = new HashMap<>(1000);
+    }
     public void readPolynomial(Map<Integer, Double> map) {
         this.degreeToCoefficient = map;
     }
@@ -53,8 +56,9 @@ public class Polynomial {
         return answer;
     }
     public Polynomial divide(Polynomial polynomial2) {
-        //todo
-        return null;
+        Polynomial answer = new Polynomial(1000);
+        //to do
+        return answer;
     }
     public Polynomial derivate() {
         Polynomial answPoly = new Polynomial(1000);
