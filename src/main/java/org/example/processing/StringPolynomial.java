@@ -1,5 +1,7 @@
 package org.example.processing;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,11 +45,21 @@ public class StringPolynomial {
             }
         }
         if(!stringPoly.isEmpty())
-            System.out.println("please check");
+        {
+            JFrame jFrame = new JFrame();
+            jFrame.setLayout(new GridBagLayout());
+            JLabel field = new JLabel("WRONG INPUT");
+            jFrame.setPreferredSize(new Dimension(300,150));
+            jFrame.setLocationRelativeTo(null);
+            jFrame.add(field);
+            jFrame.pack();
+            jFrame.setVisible(true);
+//            System.out.println("please check (input)");
+        }
     }
 
-    private Map<Integer, Integer> getPolyMapping() {
-        Map<Integer, Integer> map = new HashMap<>();
+    private Map<Integer, Double> getPolyMapping() {
+        Map<Integer, Double> map = new HashMap<>();
         for (String token : tokens) {
 //            System.out.println("preprocess: " + token);
             Pair<Integer, Integer> p;
@@ -69,7 +81,7 @@ public class StringPolynomial {
             else {
                 degree = 0;
 //                System.out.println("postprocess: " + degree + " " + sign * coefficient);
-                map.put(degree, sign * coefficient);
+                map.put(degree, sign * coefficient * 1.0);
                 continue;
             }
             if(token.charAt(index) == '^') index++;
@@ -77,7 +89,7 @@ public class StringPolynomial {
             degree = p.getFirst();
             index = p.getSecond();
 //            System.out.println("postprocess: " + degree + " " + coefficient);
-            map.put(degree, sign * coefficient);
+            map.put(degree, sign * coefficient * 1.0);
         }
 //        map.forEach((x,y)-> System.out.println(x + " " + y));
         return map;

@@ -5,12 +5,12 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Polynomial {
-    private Map<Integer, Integer> degreeToCoefficient;
+    private Map<Integer, Double> degreeToCoefficient;
 
     public Polynomial(Integer initialSize) {
         this.degreeToCoefficient = new HashMap<>(initialSize);
     }
-    public void readPolynomial(Map<Integer, Integer> map) {
+    public void readPolynomial(Map<Integer, Double> map) {
         this.degreeToCoefficient = map;
     }
     public Polynomial add(Polynomial polynomial2) {
@@ -18,8 +18,8 @@ public class Polynomial {
         polynomial.degreeToCoefficient.putAll(this.degreeToCoefficient);
         polynomial2.degreeToCoefficient.forEach((key, value) ->
         {
-            Integer oldValue = polynomial.degreeToCoefficient.get(key);
-            if(oldValue == null) oldValue = 0;
+            Double oldValue = polynomial.degreeToCoefficient.get(key);
+            if(oldValue == null) oldValue = 0.0;
             polynomial.degreeToCoefficient.put(key, oldValue + value);
         });
 //        polynomial.degreeToCoefficient.forEach((x,y) -> System.out.print(y + " * X^" + x + " "));
@@ -50,7 +50,7 @@ public class Polynomial {
                 answPoly.degreeToCoefficient.put(key, value);
             }
             else
-                answPoly.degreeToCoefficient.put(0,0);
+                answPoly.degreeToCoefficient.put(0,0.0);
         });
         return answPoly;
     }
