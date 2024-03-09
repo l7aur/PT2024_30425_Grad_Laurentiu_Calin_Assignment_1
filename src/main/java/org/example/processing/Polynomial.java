@@ -31,9 +31,26 @@ public class Polynomial {
         return negatedPoly.add(this);
 
     }
-    public Polynomial negate() {
+    private Polynomial negate() {
         this.degreeToCoefficient.forEach((key, value) -> this.degreeToCoefficient.put(key, -value));
         return this;
+    }
+    public Polynomial multiply(Polynomial polynomial2) {
+        Polynomial answer = new Polynomial(1000);
+        this.degreeToCoefficient.forEach((x,y)->
+        {
+            polynomial2.degreeToCoefficient.forEach((key, value) ->
+            {
+                if(answer.degreeToCoefficient.containsKey(x + key)) {
+                    Double oldVal = answer.degreeToCoefficient.get(x + key);
+                    answer.degreeToCoefficient.replace(x + key, y * value + oldVal);
+                }
+                else
+                    answer.degreeToCoefficient.put(x + key, y * value);
+            });
+        });
+
+        return answer;
     }
     public Polynomial divide(Polynomial polynomial2) {
         //todo

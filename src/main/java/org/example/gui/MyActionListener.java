@@ -50,6 +50,13 @@ public class MyActionListener implements ActionListener {
                 polynomial2 = this.getInputPoly(this.readPanel.getField2());
                 answer = polynomial1.subtract(polynomial2);
                 break;
+            case "Multiplication":
+                polynomial1 = this.getInputPoly(this.readPanel.getField1());
+                polynomial2 = this.getInputPoly(this.readPanel.getField2());
+                answer = polynomial1.multiply(polynomial2);
+                break;
+            case "Divide":
+                break;
             case "Derivation":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());
                 answer = polynomial1.derivate();
@@ -57,10 +64,6 @@ public class MyActionListener implements ActionListener {
             case "Integration":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());
                 answer = polynomial1.integrate();
-                break;
-            case "Multiply":
-                break;
-            case "Divide":
                 break;
             default:
                 System.out.println("You should not be able to get here");
