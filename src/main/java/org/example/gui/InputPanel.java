@@ -4,14 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class InputPanel extends JPanel {
-    private JLabel label;
-    private OutputPanel outputPanel;
-    private ReadPanel readPanel;
+    private final OutputPanel outputPanel;
+    private final ReadPanel readPanel;
     public InputPanel() {
         super();
         this.setBackground(Color.pink);
         this.setLayout(new GridBagLayout());
-        this.label = new JLabel("dasda");
         this.outputPanel = new OutputPanel();
         this.readPanel = new ReadPanel();
     }

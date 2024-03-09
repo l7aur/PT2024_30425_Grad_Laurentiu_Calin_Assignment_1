@@ -4,15 +4,10 @@ import org.example.processing.Pair;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CalcPanel extends JPanel {
-    private InputPanel inputPanel;
-    private ArrayList<JButton> buttons;
-    private ArrayList<String> buttonNames;
-    private ArrayList<Pair<Integer, Integer>> pos;
+    private final InputPanel inputPanel;
     public CalcPanel(InputPanel inputPanel) {
         super();
         this.inputPanel = inputPanel;
@@ -26,8 +21,6 @@ public class CalcPanel extends JPanel {
         constraints.insets = insets;
         constraints.gridx = 1;
         constraints.gridy = 0;
-//        constraints.gridwidth = 5;
-//        constraints.gridheight = 5;
         return constraints;
     }
     public void setPaneUI() {
@@ -35,24 +28,22 @@ public class CalcPanel extends JPanel {
     }
     public void addButtons() {
         Insets insets = new Insets(5,5,5,5);
-        ArrayList<JButton> buttons = new ArrayList<>();
         ArrayList<String> buttonNames = this.getNames();
         ArrayList<Pair<Integer, Integer>> pos = this.getPositions();
         for (int index = 0; index < buttonNames.size(); index++) {
             MyButton b = new MyButton(buttonNames.get(index));
             b.addActionListener(new MyActionListener(this.inputPanel.getReadPanel(), this.inputPanel.getOutputPanel(), b.getOperation()));
-            buttons.add(b);
             this.add(b, getButtonConstraints(insets, pos.get(index).getFirst(), pos.get(index).getSecond()));
         }
     }
     public ArrayList<Pair<Integer, Integer>> getPositions() {
         ArrayList<Pair<Integer, Integer>> pos = new ArrayList<>();
-        pos.add(new Pair<Integer, Integer>(0,0));
-        pos.add(new Pair<Integer, Integer>(1,0));
-        pos.add(new Pair<Integer, Integer>(0,1));
-        pos.add(new Pair<Integer, Integer>(1,1));
-        pos.add(new Pair<Integer, Integer>(1,2));
-        pos.add(new Pair<Integer, Integer>(0,2));
+        pos.add(new Pair<>(0,0));
+        pos.add(new Pair<>(1,0));
+        pos.add(new Pair<>(0,1));
+        pos.add(new Pair<>(1,1));
+        pos.add(new Pair<>(1,2));
+        pos.add(new Pair<>(0,2));
         return pos;
     }
     public ArrayList<String> getNames() {

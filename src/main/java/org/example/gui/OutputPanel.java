@@ -4,20 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class OutputPanel extends JPanel {
-    private JLabel outputText;
+    private final JLabel outputText;
     public OutputPanel() {
         super();
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(300,100));
         this.outputText = new JLabel("RESULT");
-    }
-
-    public void setOutputText(JLabel outputText) {
-        this.outputText = outputText;
-    }
-
-    public JLabel getOutputText() {
-        return this.outputText;
     }
     public GridBagConstraints getConstraints(Insets insets) {
         GridBagConstraints constraints = new GridBagConstraints();

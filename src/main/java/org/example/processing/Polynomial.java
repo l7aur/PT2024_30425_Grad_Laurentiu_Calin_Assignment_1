@@ -10,9 +10,6 @@ public class Polynomial {
     public Polynomial(Integer initialSize) {
         this.degreeToCoefficient = new HashMap<>(initialSize);
     }
-    public Polynomial() {
-        this.degreeToCoefficient = new HashMap<>(1000);
-    }
     public void readPolynomial(Map<Integer, Double> map) {
         this.degreeToCoefficient = map;
     }
@@ -25,8 +22,6 @@ public class Polynomial {
             if(oldValue == null) oldValue = 0.0;
             polynomial.degreeToCoefficient.put(key, oldValue + value);
         });
-//        polynomial.degreeToCoefficient.forEach((x,y) -> System.out.print(y + " * X^" + x + " "));
-//        this.degreeToCoefficient.forEach((x,y) -> System.out.print(y + " * X^" + x + " "));
         return polynomial;
     }
     public Polynomial subtract(Polynomial polynomial2) {
@@ -41,25 +36,61 @@ public class Polynomial {
     public Polynomial multiply(Polynomial polynomial2) {
         Polynomial answer = new Polynomial(1000);
         this.degreeToCoefficient.forEach((x,y)->
-        {
-            polynomial2.degreeToCoefficient.forEach((key, value) ->
-            {
-                if(answer.degreeToCoefficient.containsKey(x + key)) {
-                    Double oldVal = answer.degreeToCoefficient.get(x + key);
-                    answer.degreeToCoefficient.replace(x + key, y * value + oldVal);
+                polynomial2.degreeToCoefficient.forEach((key, value) ->
+                {
+                    if(answer.degreeToCoefficient.containsKey(x + key)) {
+                        Double oldVal = answer.degreeToCoefficient.get(x + key);
+                        answer.degreeToCoefficient.replace(x + key, y * value + oldVal);
+                    }
+                    else
+                        answer.degreeToCoefficient.put(x + key, y * value);
+                }));
+        return answer;
+    }
+    public Polynomial multiplyByMonomial(Integer a, Double b) {
+        Polynomial answer = new Polynomial(1000);
+        this.degreeToCoefficient.forEach((x,y)-> {
+                if(answer.degreeToCoefficient.containsKey(x + a)) {
+                    Double oldVal = answer.degreeToCoefficient.get(x + a);
+                    answer.degreeToCoefficient.replace(x + a, y * b + oldVal);
                 }
                 else
-                    answer.degreeToCoefficient.put(x + key, y * value);
-            });
+                    answer.degreeToCoefficient.put(x + a, y * b);
         });
-
         return answer;
     }
     public Polynomial divide(Polynomial polynomial2) {
-        Polynomial answer = new Polynomial(1000);
-        //to do
-        return answer;
+        Polynomial result = new Polynomial(1000);
+        Polynomial dummy = new Polynomial(1000);
+        dummy.degreeToCoefficient = this.degreeToCoefficient;
+
+        Integer maximumDeg1 = this.getMaximumDegree();
+        Integer maximumDeg2 = polynomial2.getMaximumDegree();
+        while (maximumDeg1 >= maximumDeg2 ) {
+            Integer mapDeg = maximumDeg1 - maximumDeg2;
+            Double mapCoeff = dummy.degreeToCoefficient.get(maximumDeg1) / polynomial2.degreeToCoefficient.get(maximumDeg2);
+            result.degreeToCoefficient.put(mapDeg, mapCoeff);
+
+            dummy = dummy.subtract(polynomial2.multiplyByMonomial(mapDeg, mapCoeff));
+            maximumDeg1 = dummy.getMaximumDegree();
+
+        }
+        System.out.print("Remainder: ");
+        dummy.printPolynomial();
+        if (result.degreeToCoefficient.isEmpty())
+            result.degreeToCoefficient.put(0,0.0);
+        return result;
     }
+    private Integer getMaximumDegree() {
+        final Integer[] answer = {0};
+        this.degreeToCoefficient.forEach((x, y) ->
+        {
+            if(answer[0] < x && y != 0.0)
+                answer[0] = x;
+        });
+        return answer[0];
+    }
+
     public Polynomial derivate() {
         Polynomial answPoly = new Polynomial(1000);
         this.degreeToCoefficient.forEach((key, value) ->
@@ -112,12 +143,20 @@ public class Polynomial {
     public String polyToString() {
         StringBuilder stringBuilder = new StringBuilder();
         this.degreeToCoefficient.forEach( (x, y) -> {
-            if(y > 0)
-                stringBuilder.append("+" + y + "*");
-            else if(y < 0)
-                    stringBuilder.append(y + "*");
-            if(y != 0)
-                    stringBuilder.append("X^" + x + " ");
+            if(y > 0) {
+                stringBuilder.append("+");
+                stringBuilder.append(y);
+                stringBuilder.append("*");
+            }
+            else if(y < 0) {
+                stringBuilder.append(y);
+                stringBuilder.append("*");
+            }
+            if(y != 0) {
+                stringBuilder.append("X^");
+                stringBuilder.append(x);
+                stringBuilder.append(" ");
+            }
             if(stringBuilder.isEmpty())
                 stringBuilder.append("0");
         });

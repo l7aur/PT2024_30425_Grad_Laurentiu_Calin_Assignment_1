@@ -1,6 +1,5 @@
 package org.example.gui;
 
-import org.example.processing.Pair;
 import org.example.processing.Polynomial;
 import org.example.processing.StringPolynomial;
 
@@ -11,31 +10,22 @@ import java.awt.event.ActionListener;
 public class MyActionListener implements ActionListener {
     private final OutputPanel outputPanel;
     private final ReadPanel readPanel;
-    private String newVal;
-    private String operation;
+    private final String operation;
     public MyActionListener(ReadPanel readPanel, OutputPanel outputPanel, String operation){
         super();
         this.readPanel = readPanel;
         this.outputPanel = outputPanel;
         this.operation = operation;
-        this.newVal = "test";
-    }
-
-    public void setNewVal(String newVal) {
-        this.newVal = newVal;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("button pressed");
         Polynomial answer = this.performCalc();
         this.outputPanel.refreshPanel(answer.polyToString());
     }
-
     private Polynomial getInputPoly(JTextField textField) {
         StringPolynomial stringPolynomial = new StringPolynomial(textField.getText());
         return stringPolynomial.convertToPoly();
     }
-
     public Polynomial performCalc() {
         Polynomial answer = new Polynomial(1000);
         Polynomial polynomial1, polynomial2;
@@ -55,7 +45,7 @@ public class MyActionListener implements ActionListener {
                 polynomial2 = this.getInputPoly(this.readPanel.getField2());
                 answer = polynomial1.multiply(polynomial2);
                 break;
-            case "Divide":
+            case "Division":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());
                 polynomial2 = this.getInputPoly(this.readPanel.getField2());
                 answer = polynomial1.divide(polynomial2);
