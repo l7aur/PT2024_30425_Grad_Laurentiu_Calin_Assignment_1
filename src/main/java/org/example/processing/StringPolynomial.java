@@ -14,6 +14,14 @@ public class StringPolynomial {
         this.stringPoly = "";
         this.tokens = new ArrayList<>();
     }
+    public StringPolynomial(String string) {
+        this.stringPoly = string;
+        this.tokens = new ArrayList<>();
+    }
+
+    public String getStringPoly() {
+        return stringPoly;
+    }
 
     public void read(String string) {
         this.stringPoly = string;

@@ -40,7 +40,7 @@ public class CalcPanel extends JPanel {
         ArrayList<Pair<Integer, Integer>> pos = this.getPositions();
         for (int index = 0; index < buttonNames.size(); index++) {
             MyButton b = new MyButton(buttonNames.get(index));
-            b.addActionListener(new MyActionListener(this.inputPanel.getOutputPanel(), b.getOperation()));//todo
+            b.addActionListener(new MyActionListener(this.inputPanel.getReadPanel(), this.inputPanel.getOutputPanel(), b.getOperation()));
             buttons.add(b);
             this.add(b, getButtonConstraints(insets, pos.get(index).getFirst(), pos.get(index).getSecond()));
         }

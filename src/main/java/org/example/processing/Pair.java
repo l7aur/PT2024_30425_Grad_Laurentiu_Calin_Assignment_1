@@ -8,6 +8,10 @@ public class Pair<T, G> {
         this.first = first;
         this.second = second;
     }
+    public Pair() {
+        this.first = null;
+        this.second = null;
+    }
     public T getFirst() {
         return first;
     }

@@ -31,4 +31,10 @@ public class ReadPanel extends JPanel {
         this.add(field2);
         this.add(Box.createVerticalGlue());
     }
+    public JTextField getField1() {
+        return this.field1;
+    }
+    public JTextField getField2() {
+        return this.field2;
+    }
 }

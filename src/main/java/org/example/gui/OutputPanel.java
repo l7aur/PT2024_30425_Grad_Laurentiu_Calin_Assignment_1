@@ -35,19 +35,8 @@ public class OutputPanel extends JPanel {
     }
 
     public void refreshPanel(String string) {
-        for (Component component : this.getComponents()) {
-            if(component instanceof JLabel)
-                this.remove(component);
-        }
-//        this.outputText = new JLabel(string);
-        this.outputText = new JLabel("masina");
-        this.outputText.setPreferredSize(new Dimension(100,40));
-        this.outputText.setBackground(Color.black);
-        this.addVFiller();
-        this.add(this.outputText);
-        this.addVFiller();
+        this.outputText.setText(string);
         this.repaint();
-        System.out.println("refreshed panel");
     }
     public void addVFiller() {
         this.add(Box.createVerticalGlue());
