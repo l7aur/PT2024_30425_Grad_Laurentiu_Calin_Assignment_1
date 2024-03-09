@@ -27,7 +27,14 @@ public class StringPolynomial {
         this.stringPoly = string;
     }
 
-    public void tokenize() {
+    public Polynomial convertToPoly() {
+        Polynomial p = new Polynomial(1000);
+        this.tokenize();
+        p.readPolynomial(this.getPolyMapping());
+        p.printPolynomial();
+        return p;
+    }
+    private void tokenize() {
         for (Pattern pattern : Patterns.patterns) {
             Matcher matcher = pattern.matcher(stringPoly);
             while (matcher.find()){
@@ -39,7 +46,7 @@ public class StringPolynomial {
             System.out.println("please check");
     }
 
-    public Map<Integer, Integer> getPolyMapping() {
+    private Map<Integer, Integer> getPolyMapping() {
         Map<Integer, Integer> map = new HashMap<>();
         for (String token : tokens) {
 //            System.out.println("preprocess: " + token);

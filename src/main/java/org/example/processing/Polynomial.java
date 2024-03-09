@@ -26,7 +26,7 @@ public class Polynomial {
 //        this.degreeToCoefficient.forEach((x,y) -> System.out.print(y + " * X^" + x + " "));
         return polynomial;
     }
-    public Polynomial substract(Polynomial polynomial2) {
+    public Polynomial subtract(Polynomial polynomial2) {
         Polynomial negatedPoly =  polynomial2.negate();
         return negatedPoly.add(this);
 
@@ -76,15 +76,30 @@ public class Polynomial {
                 System.out.print(y);
                 printFlag.set(true);
             }
-            if(x != 0) {
-                System.out.print(" X^" + x + " ");
-                printFlag.set(true);
+            if(y != 0) {
+                if (x != 0) {
+                    System.out.print(" X^" + x + " ");
+                    printFlag.set(true);
+                } else
+                    System.out.print(" ");
             }
-            else
-                System.out.print(" ");
         });
         if(!printFlag.getAcquire())
             System.out.print("0");
         System.out.println();
+    }
+    public String polyToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        this.degreeToCoefficient.forEach( (x, y) -> {
+            if(y > 0)
+                stringBuilder.append("+" + y + "*");
+            else if(y < 0)
+                    stringBuilder.append(y + "*");
+            if(y != 0)
+                    stringBuilder.append("X^" + x + " ");
+            if(stringBuilder.isEmpty())
+                stringBuilder.append("0");
+        });
+        return stringBuilder.toString();
     }
 }
