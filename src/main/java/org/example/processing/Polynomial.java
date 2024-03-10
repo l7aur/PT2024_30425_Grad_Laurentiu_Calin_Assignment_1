@@ -1,5 +1,6 @@
 package org.example.processing;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -10,8 +11,17 @@ public class Polynomial {
     public Polynomial(Integer initialSize) {
         this.degreeToCoefficient = new HashMap<>(initialSize);
     }
-    public void readPolynomial(Map<Integer, Double> map) {
+    public Polynomial(ArrayList<Pair<Integer, Double>> arrayList) {
+        this(1000);
+        arrayList.forEach(x -> {
+            this.degreeToCoefficient.put(x.getFirst(), x.getSecond());
+        });
+    }
+    public void setMap(Map<Integer, Double> map) {
         this.degreeToCoefficient = map;
+    }
+    public Map<Integer, Double> getMap() {
+        return this.degreeToCoefficient;
     }
     public Polynomial add(Polynomial polynomial2) {
         Polynomial polynomial = new Polynomial(1000);
@@ -21,7 +31,11 @@ public class Polynomial {
             Double oldValue = polynomial.degreeToCoefficient.get(key);
             if(oldValue == null) oldValue = 0.0;
             polynomial.degreeToCoefficient.put(key, oldValue + value);
+            if(oldValue + value == 0)
+                polynomial.degreeToCoefficient.remove(key);
         });
+        if(polynomial.degreeToCoefficient.isEmpty())
+            polynomial.degreeToCoefficient.put(0, 0.0);
         return polynomial;
     }
     public Polynomial subtract(Polynomial polynomial2) {
@@ -30,8 +44,9 @@ public class Polynomial {
 
     }
     private Polynomial negate() {
-        this.degreeToCoefficient.forEach((key, value) -> this.degreeToCoefficient.put(key, -value));
-        return this;
+        Polynomial polynomial = new Polynomial(1000);
+        this.degreeToCoefficient.forEach((key, value) -> polynomial.degreeToCoefficient.put(key, -value));
+        return polynomial;
     }
     public Polynomial multiply(Polynomial polynomial2) {
         Polynomial answer = new Polynomial(1000);
@@ -40,11 +55,15 @@ public class Polynomial {
                 {
                     if(answer.degreeToCoefficient.containsKey(x + key)) {
                         Double oldVal = answer.degreeToCoefficient.get(x + key);
+                        if(y * value + oldVal == 0)
+                            answer.degreeToCoefficient.remove(x + key);
                         answer.degreeToCoefficient.replace(x + key, y * value + oldVal);
                     }
-                    else
+                    else if(y * value != 0)
                         answer.degreeToCoefficient.put(x + key, y * value);
                 }));
+        if(answer.degreeToCoefficient.isEmpty())
+            answer.degreeToCoefficient.put(0,0.0);
         return answer;
     }
     public Polynomial multiplyByMonomial(Integer a, Double b) {
@@ -67,6 +86,10 @@ public class Polynomial {
         Integer maximumDeg1 = this.getMaximumDegree();
         Integer maximumDeg2 = polynomial2.getMaximumDegree();
         while (maximumDeg1 >= maximumDeg2 ) {
+            if(maximumDeg2 == 0 && polynomial2.degreeToCoefficient.get(0) == 0){
+                System.out.println("Can t divide by 0");
+                break;
+            }
             Integer mapDeg = maximumDeg1 - maximumDeg2;
             Double mapCoeff = dummy.degreeToCoefficient.get(maximumDeg1) / polynomial2.degreeToCoefficient.get(maximumDeg2);
             result.degreeToCoefficient.put(mapDeg, mapCoeff);

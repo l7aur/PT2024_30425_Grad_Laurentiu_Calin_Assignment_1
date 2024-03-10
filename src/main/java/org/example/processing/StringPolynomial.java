@@ -17,11 +17,16 @@ public class StringPolynomial {
     }
     public Polynomial convertToPoly() {
         Polynomial p = new Polynomial(1000);
-        this.tokenize();
-        p.readPolynomial(this.getPolyMapping());
+        try {
+            this.tokenize();
+        }
+        catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        p.setMap(this.getPolyMapping());
         return p;
     }
-    private void tokenize() {
+    private void tokenize() throws Exception {
         for (Pattern pattern : Patterns.patterns) {
             Matcher matcher = pattern.matcher(stringPoly);
             while (matcher.find()){
@@ -31,6 +36,7 @@ public class StringPolynomial {
         }
         if(!stringPoly.isEmpty())
         {
+            tokens.clear();
             JFrame jFrame = new JFrame();
             jFrame.setLayout(new GridBagLayout());
             JLabel field = new JLabel("WRONG INPUT");
@@ -39,6 +45,7 @@ public class StringPolynomial {
             jFrame.add(field);
             jFrame.pack();
             jFrame.setVisible(true);
+            throw new Exception("Input error");
         }
     }
     private Map<Integer, Double> getPolyMapping() {
