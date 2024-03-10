@@ -11,6 +11,7 @@ public class MainFrame extends JFrame {
         this.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         this.mainPane.setLayout(new GridBagLayout());
         this.mainPane.setBackground(Color.darkGray);
+        this.setTitle("Polynomial Calculator");
     }
     public void makePublic() {
         this.setMinimumSize(new Dimension(1000,600));
