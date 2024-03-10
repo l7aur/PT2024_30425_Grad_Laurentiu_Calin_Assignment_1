@@ -14,7 +14,7 @@ public class CalcPanel extends JPanel {
         this.setName("Polynomial Calculator");
         this.setPreferredSize(new Dimension(400, 400));
         this.setLayout(new GridBagLayout());
-        this.setBackground(Color.green);
+        this.setBackground(Color.orange);
     }
     public GridBagConstraints getConstraints(Insets insets) {
         GridBagConstraints constraints = new GridBagConstraints();
