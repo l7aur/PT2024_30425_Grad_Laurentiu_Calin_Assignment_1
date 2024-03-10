@@ -1,11 +1,6 @@
 package org.example;
 
 import org.example.gui.MainFrame;
-import org.example.processing.Polynomial;
-import org.example.processing.StringPolynomial;
-
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class App {
 

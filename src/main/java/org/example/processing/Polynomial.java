@@ -13,9 +13,7 @@ public class Polynomial {
     }
     public Polynomial(ArrayList<Pair<Integer, Double>> arrayList) {
         this(1000);
-        arrayList.forEach(x -> {
-            this.degreeToCoefficient.put(x.getFirst(), x.getSecond());
-        });
+        arrayList.forEach(x -> this.degreeToCoefficient.put(x.getFirst(), x.getSecond()));
     }
     public void setMap(Map<Integer, Double> map) {
         this.degreeToCoefficient = map;
