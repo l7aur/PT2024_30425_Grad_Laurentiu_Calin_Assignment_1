@@ -68,7 +68,10 @@ public class StringPolynomial {
             if(token.charAt(index) == 'X') index++;
             else {
                 degree = 0;
-                map.put(degree, sign * coefficient * 1.0);
+                if(map.containsKey(degree))
+                    map.replace(degree, map.get(degree) + sign * coefficient * 1.0);
+                else
+                    map.put(degree, sign * coefficient * 1.0);
                 continue;
             }
             if(token.charAt(index) == '^') index++;
