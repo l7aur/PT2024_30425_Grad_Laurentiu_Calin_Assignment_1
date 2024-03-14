@@ -27,7 +27,7 @@ public class StringPolynomial {
         return p;
     }
     private void tokenize() throws Exception {
-        for (Pattern pattern : Patterns.patterns) {
+        for (Pattern pattern : Patterns.patterns2) {
             Matcher matcher = pattern.matcher(stringPoly);
             while (matcher.find()){
                 tokens.add(matcher.group());
@@ -74,7 +74,10 @@ public class StringPolynomial {
             if(token.charAt(index) == '^') index++;
             p = this.convertToInteger(token, index);
             degree = p.getFirst();
-            map.put(degree, sign * coefficient * 1.0);
+            if(map.containsKey(degree))
+                map.replace(degree, map.get(degree) + sign * coefficient * 1.0);
+            else
+                map.put(degree, sign * coefficient * 1.0);
         }
         return map;
     }
