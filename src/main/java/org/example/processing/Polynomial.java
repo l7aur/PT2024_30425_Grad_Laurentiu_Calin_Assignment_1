@@ -101,7 +101,8 @@ public class Polynomial {
         if(maximumDeg1 > -1) {
             JFrame jFrame = new JFrame();
             jFrame.setLayout(new GridBagLayout());
-            JLabel field = new JLabel("<html>Remainder: " + dummy.polyToString() + "</html>");
+            JLabel field = new JLabel("<html>Remainder:\n" + dummy.polyToString() + "</html>");
+            field.setPreferredSize(new Dimension(300,150));
             jFrame.setPreferredSize(new Dimension(300, 150));
             jFrame.setLocationRelativeTo(null);
             jFrame.add(field);
@@ -200,6 +201,7 @@ public class Polynomial {
                     stringBuilder.append(y);
             if(stringBuilder.isEmpty())
                 stringBuilder.append("0");
+            stringBuilder.append(" ");
         });
         return stringBuilder.toString();
     }
