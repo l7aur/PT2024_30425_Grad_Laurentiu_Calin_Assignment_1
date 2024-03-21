@@ -1,5 +1,7 @@
 package org.example.processing;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -96,6 +98,16 @@ public class Polynomial {
             maximumDeg1 = dummy.getMaximumDegree();
 
         }
+        if(maximumDeg1 > -1) {
+            JFrame jFrame = new JFrame();
+            jFrame.setLayout(new GridBagLayout());
+            JLabel field = new JLabel("<html>Remainder: " + dummy.polyToString() + "</html>");
+            jFrame.setPreferredSize(new Dimension(300, 150));
+            jFrame.setLocationRelativeTo(null);
+            jFrame.add(field);
+            jFrame.pack();
+            jFrame.setVisible(true);
+        }
         System.out.print("Remainder: ");
         dummy.printPolynomial();
         if (result.degreeToCoefficient.isEmpty())
@@ -103,7 +115,7 @@ public class Polynomial {
         return result;
     }
     private Integer getMaximumDegree() {
-        final Integer[] answer = {0};
+        final Integer[] answer = {-1};
         this.degreeToCoefficient.forEach((x, y) ->
         {
             if(answer[0] < x && y != 0.0)
@@ -164,20 +176,28 @@ public class Polynomial {
     public String polyToString() {
         StringBuilder stringBuilder = new StringBuilder();
         this.degreeToCoefficient.forEach( (x, y) -> {
-            if(y > 0) {
-                stringBuilder.append("+");
-                stringBuilder.append(y);
-                stringBuilder.append("*");
+            if(x != 0) {
+                if (y != 0) {
+                    if (y < 0)
+                        stringBuilder.append("-");
+                    else if (!stringBuilder.isEmpty())
+                        stringBuilder.append("+");
+                    if (y != 1 && y != -1) {
+                        if(y < 0)
+                            stringBuilder.append(-y);
+                        else
+                            stringBuilder.append(y);
+                        stringBuilder.append("*");
+                    }
+                    stringBuilder.append("X");
+                    if (x != 1) {
+                        stringBuilder.append("^");
+                        stringBuilder.append(x);
+                    }
+                }
             }
-            else if(y < 0) {
-                stringBuilder.append(y);
-                stringBuilder.append("*");
-            }
-            if(y != 0) {
-                stringBuilder.append("X^");
-                stringBuilder.append(x);
-                stringBuilder.append(" ");
-            }
+            else if(y != 0)
+                    stringBuilder.append(y);
             if(stringBuilder.isEmpty())
                 stringBuilder.append("0");
         });
