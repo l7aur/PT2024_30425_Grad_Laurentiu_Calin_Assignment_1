@@ -48,7 +48,7 @@ public class MyActionListener implements ActionListener {
             case "Division":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());
                 polynomial2 = this.getInputPoly(this.readPanel.getField2());
-                answer = polynomial1.divide(polynomial2);
+                answer = polynomial1.divide(polynomial2).getFirst();
                 break;
             case "Derivation":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());

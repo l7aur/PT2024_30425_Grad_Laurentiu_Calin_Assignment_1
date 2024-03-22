@@ -14,6 +14,6 @@ public class App {
 
     }
     public void quitApp() {
-
+        System.out.println("App exited");
     }
 }

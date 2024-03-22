@@ -140,7 +140,7 @@ public class StringPolynomialTest {
         {
             p.put(2,2.0);
         }
-        assertNotEquals(p, poly.convertToPoly().getMap());
+        assertEquals(p, poly.convertToPoly().getMap());
     }
     @Test
     public void testConversionToMap13() {

@@ -78,7 +78,7 @@ public class Polynomial {
         });
         return answer;
     }
-    public Polynomial divide(Polynomial polynomial2) {
+    public Pair<Polynomial, Polynomial> divide(Polynomial polynomial2) {
         Polynomial result = new Polynomial(1000);
         Polynomial dummy = new Polynomial(1000);
         dummy.degreeToCoefficient = this.degreeToCoefficient;
@@ -98,22 +98,11 @@ public class Polynomial {
             maximumDeg1 = dummy.getMaximumDegree();
 
         }
-        if(maximumDeg1 > -1) {
-            JFrame jFrame = new JFrame();
-            jFrame.setLayout(new GridBagLayout());
-            JLabel field = new JLabel("<html>Remainder:\n" + dummy.polyToString() + "</html>");
-            field.setPreferredSize(new Dimension(300,150));
-            jFrame.setPreferredSize(new Dimension(300, 150));
-            jFrame.setLocationRelativeTo(null);
-            jFrame.add(field);
-            jFrame.pack();
-            jFrame.setVisible(true);
-        }
         System.out.print("Remainder: ");
         dummy.printPolynomial();
         if (result.degreeToCoefficient.isEmpty())
             result.degreeToCoefficient.put(0,0.0);
-        return result;
+        return new Pair<>(result, dummy);
     }
     private Integer getMaximumDegree() {
         final Integer[] answer = {-1};
