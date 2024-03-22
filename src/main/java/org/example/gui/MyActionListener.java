@@ -1,5 +1,6 @@
 package org.example.gui;
 
+import org.example.processing.Pair;
 import org.example.processing.Polynomial;
 import org.example.processing.StringPolynomial;
 
@@ -19,44 +20,46 @@ public class MyActionListener implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        Polynomial answer = this.performCalc();
-        this.outputPanel.refreshPanel(answer.polyToString());
+        Pair<Polynomial, Polynomial> answer = this.performCalc();
+        this.outputPanel.refreshPanel(answer);
     }
     private Polynomial getInputPoly(JTextField textField) {
         StringPolynomial stringPolynomial = new StringPolynomial(textField.getText());
         return stringPolynomial.convertToPoly();
     }
-    public Polynomial performCalc() {
-        Polynomial answer = new Polynomial(1000);
+    public Pair<Polynomial, Polynomial> performCalc() {
+        Pair<Polynomial, Polynomial> answer = new Pair<>();
+        answer.setSecond(null);
         Polynomial polynomial1, polynomial2;
         switch (this.operation) {
             case "Addition":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());
                 polynomial2 = this.getInputPoly(this.readPanel.getField2());
-                answer = polynomial1.add(polynomial2);
+                answer.setFirst(polynomial1.add(polynomial2));
                 break;
             case "Subtraction":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());
                 polynomial2 = this.getInputPoly(this.readPanel.getField2());
-                answer = polynomial1.subtract(polynomial2);
+                answer.setFirst(polynomial1.subtract(polynomial2));
                 break;
             case "Multiplication":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());
                 polynomial2 = this.getInputPoly(this.readPanel.getField2());
-                answer = polynomial1.multiply(polynomial2);
+                answer.setFirst(polynomial1.multiply(polynomial2));
                 break;
             case "Division":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());
                 polynomial2 = this.getInputPoly(this.readPanel.getField2());
-                answer = polynomial1.divide(polynomial2).getFirst();
+                answer.setFirst(polynomial1.divide(polynomial2).getFirst());
+                answer.setSecond(polynomial1.divide(polynomial2).getSecond());
                 break;
             case "Derivation":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());
-                answer = polynomial1.derivate();
+                answer.setFirst(polynomial1.derivate());
                 break;
             case "Integration":
                 polynomial1 = this.getInputPoly(this.readPanel.getField1());
-                answer = polynomial1.integrate();
+                answer.setFirst(polynomial1.integrate());
                 break;
             default:
                 System.out.println("You should not be able to get here");

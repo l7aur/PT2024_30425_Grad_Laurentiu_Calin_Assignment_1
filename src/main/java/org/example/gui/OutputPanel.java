@@ -1,5 +1,8 @@
 package org.example.gui;
 
+import org.example.processing.Pair;
+import org.example.processing.Polynomial;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -26,7 +29,13 @@ public class OutputPanel extends JPanel {
         this.addVFiller();
     }
 
-    public void refreshPanel(String string) {
+    public void refreshPanel(Pair<Polynomial, Polynomial> pair) {
+        StringBuilder string = new StringBuilder();
+        string.append(pair.getFirst().toString());
+        if(pair.getSecond() != null) {
+            string.append("|");
+            string.append(pair.getSecond().toString());
+        }
         this.outputText.setText("<html>" + string + "</html>"); //wrap the text
         this.repaint();
     }

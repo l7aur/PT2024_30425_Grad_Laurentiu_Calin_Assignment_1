@@ -1,7 +1,5 @@
 package org.example.processing;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -102,6 +100,8 @@ public class Polynomial {
         dummy.printPolynomial();
         if (result.degreeToCoefficient.isEmpty())
             result.degreeToCoefficient.put(0,0.0);
+        if (dummy.degreeToCoefficient.isEmpty())
+            dummy.degreeToCoefficient.put(0,0.0);
         return new Pair<>(result, dummy);
     }
     private Integer getMaximumDegree() {
@@ -163,7 +163,8 @@ public class Polynomial {
             System.out.print("0");
         System.out.println();
     }
-    public String polyToString() {
+    @Override
+    public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         this.degreeToCoefficient.forEach( (x, y) -> {
             if(x != 0) {

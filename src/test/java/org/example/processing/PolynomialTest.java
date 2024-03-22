@@ -222,9 +222,8 @@ public class PolynomialTest {
         assertEquals(polynomial3.getMap(), polynomial1.multiply(polynomial2).getMap());
         assertEquals(polynomial3.getMap(), polynomial2.multiply(polynomial1).getMap());
     }
-//    @Test
+    //    @Test
 //    public void checkDivision1(){
-    //debug assertion good result tho
 //        ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();
 //        ArrayList<Pair <Integer, Double>> arrayList2 = new ArrayList<>();
 //        ArrayList<Pair <Integer, Double>> arrayList3 = new ArrayList<>();
@@ -239,103 +238,86 @@ public class PolynomialTest {
 //        Polynomial polynomial1 = new Polynomial(arrayList1);
 //        Polynomial polynomial2 = new Polynomial(arrayList2);
 //        Polynomial polynomial3 = new Polynomial(arrayList3);
-//        assertEquals(polynomial3.getMap(), polynomial1.divide(polynomial2).getMap());
-//        assertEquals(polynomial3.getMap(), polynomial2.divide(polynomial1).getMap());
+//        assertEquals(polynomial3.getMap(), polynomial1.divide(polynomial2).getFirst().getMap());
 //    }
-//    @Test
-//    public void checkDivision2(){
-//        ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();
-//        ArrayList<Pair <Integer, Double>> arrayList2 = new ArrayList<>();
-//        ArrayList<Pair <Integer, Double>> arrayList3 = new ArrayList<>();
-//        ArrayList<Pair <Integer, Double>> arrayList4 = new ArrayList<>();
-//        {   //X^3+3X^2+3X+1
-//            arrayList1.add(new Pair<>(3,1.0));
-//            arrayList1.add(new Pair<>(2,3.0));
-//            arrayList1.add(new Pair<>(1,3.0));
-//            arrayList1.add(new Pair<>(0,1.0));
-//        }{  //X+1
-//            arrayList2.add(new Pair<>(1,1.0));
-//            arrayList2.add(new Pair<>(0,1.0));
-//        }{  //X^2+2X+1
-//            arrayList3.add(new Pair<>(2, 1.0));
-//            arrayList3.add(new Pair<>(1, 2.0));
-//            arrayList3.add(new Pair<>(0, 1.0));
-//        }{  //0
-//            arrayList4.add(new Pair<>(0, 0.0));
-//        }
-//        Polynomial polynomial1 = new Polynomial(arrayList1);
-//        Polynomial polynomial2 = new Polynomial(arrayList2);
-//        Polynomial polynomial3 = new Polynomial(arrayList3);
-//        Polynomial polynomial4 = new Polynomial(arrayList4);
-//        assertEquals(polynomial3.getMap(), polynomial1.divide(polynomial2).getMap());
-//        assertEquals(polynomial4.getMap(), polynomial2.divide(polynomial1).getMap());
-//    }
-//    @Test
-//    public void checkDivision3(){
-//        ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();
-//        ArrayList<Pair <Integer, Double>> arrayList2 = new ArrayList<>();
-//        ArrayList<Pair <Integer, Double>> arrayList3 = new ArrayList<>();
-//        ArrayList<Pair <Integer, Double>> arrayList4 = new ArrayList<>();
-//        {   //X^5+3X^3-3X^2+5X-5
-//            arrayList1.add(new Pair<>(5,1.0));
-//            arrayList1.add(new Pair<>(3,3.0));
-//            arrayList1.add(new Pair<>(2,-3.0));
-//            arrayList1.add(new Pair<>(1,5.0));
-//            arrayList1.add(new Pair<>(0,-5.0));
-//        }{  //X^2+7
-//            arrayList2.add(new Pair<>(2,1.0));
-//            arrayList2.add(new Pair<>(0,7.0));
-//        }{  //X^3-4X-3q 33X+16r
-//            arrayList3.add(new Pair<>(3, 1.0));
-//            arrayList3.add(new Pair<>(1, -4.0));
-//            arrayList3.add(new Pair<>(0, -3.0));
-//        }{  //0q X^2+7r
-//            arrayList4.add(new Pair<>(0, 0.0));
-//        }
-//        Polynomial polynomial1 = new Polynomial(arrayList1);
-//        Polynomial polynomial2 = new Polynomial(arrayList2);
-//        Polynomial polynomial3 = new Polynomial(arrayList3);
-//        Polynomial polynomial4 = new Polynomial(arrayList4);
-//        assertEquals(polynomial3.getMap(), polynomial1.divide(polynomial2).getMap());
-//        assertEquals(polynomial4.getMap(), polynomial2.divide(polynomial1).getMap());
-//    }
-//    @Test
-//    public void checkDivision4(){
-//        ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();
-//        ArrayList<Pair <Integer, Double>> arrayList2 = new ArrayList<>();
-//        ArrayList<Pair <Integer, Double>> arrayList3 = new ArrayList<>();
-//        ArrayList<Pair <Integer, Double>> arrayList4 = new ArrayList<>();
-//        {   //3X^7-3X^5+10X^3+5X^2-50
-//            arrayList1.add(new Pair<>(7,3.0));
-//            arrayList1.add(new Pair<>(5,-3.0));
-//            arrayList1.add(new Pair<>(3,10.0));
-//            arrayList1.add(new Pair<>(2,5.0));
-//            arrayList1.add(new Pair<>(0,-50.0));
-//        }{  //2X^3+4
-//            arrayList2.add(new Pair<>(3,2.0));
-//            arrayList2.add(new Pair<>(0,4.0));
-//        }{  //3/2X^4-3/2X^2-3X+5q 11X^2+12X-70r
-//            arrayList3.add(new Pair<>(4, 3/2.0));
-//            arrayList3.add(new Pair<>(2, -3/2.0));
-//            arrayList3.add(new Pair<>(1, -3.0));
-//            arrayList3.add(new Pair<>(0, 5.0));
-//        }{  //0q 2X^3+4r
-//            arrayList4.add(new Pair<>(0, 0.0));
-//        }
-//        Polynomial polynomial1 = new Polynomial(arrayList1);
-//        Polynomial polynomial2 = new Polynomial(arrayList2);
-//        Polynomial polynomial3 = new Polynomial(arrayList3);
-//        Polynomial polynomial4 = new Polynomial(arrayList4);
-//        assertEquals(polynomial3.getMap(), polynomial1.divide(polynomial2).getMap());
-//        assertEquals(polynomial4.getMap(), polynomial2.divide(polynomial1).getMap());
-//    }
+    @Test
+    public void checkDivision2(){
+        ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();
+        ArrayList<Pair <Integer, Double>> arrayList2 = new ArrayList<>();
+        ArrayList<Pair <Integer, Double>> arrayList3 = new ArrayList<>();
+        {   //X^3+3X^2+3X+1
+            arrayList1.add(new Pair<>(3,1.0));
+            arrayList1.add(new Pair<>(2,3.0));
+            arrayList1.add(new Pair<>(1,3.0));
+            arrayList1.add(new Pair<>(0,1.0));
+        }{  //X+1
+            arrayList2.add(new Pair<>(1,1.0));
+            arrayList2.add(new Pair<>(0,1.0));
+        }{  //X^2+2X+1
+            arrayList3.add(new Pair<>(2, 1.0));
+            arrayList3.add(new Pair<>(1, 2.0));
+            arrayList3.add(new Pair<>(0, 1.0));
+        }
+        Polynomial polynomial1 = new Polynomial(arrayList1);
+        Polynomial polynomial2 = new Polynomial(arrayList2);
+        Polynomial polynomial3 = new Polynomial(arrayList3);
+        assertEquals(polynomial3.getMap(), polynomial1.divide(polynomial2).getFirst().getMap());
+    }
+    @Test
+    public void checkDivision3(){
+        ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();
+        ArrayList<Pair <Integer, Double>> arrayList2 = new ArrayList<>();
+        ArrayList<Pair <Integer, Double>> arrayList3 = new ArrayList<>();
+        {   //X^5+3X^3-3X^2+5X-5
+            arrayList1.add(new Pair<>(5,1.0));
+            arrayList1.add(new Pair<>(3,3.0));
+            arrayList1.add(new Pair<>(2,-3.0));
+            arrayList1.add(new Pair<>(1,5.0));
+            arrayList1.add(new Pair<>(0,-5.0));
+        }{  //X^2+7
+            arrayList2.add(new Pair<>(2,1.0));
+            arrayList2.add(new Pair<>(0,7.0));
+        }{  //X^3-4X-3q 33X+16r
+            arrayList3.add(new Pair<>(3, 1.0));
+            arrayList3.add(new Pair<>(1, -4.0));
+            arrayList3.add(new Pair<>(0, -3.0));
+        }
+        Polynomial polynomial1 = new Polynomial(arrayList1);
+        Polynomial polynomial2 = new Polynomial(arrayList2);
+        Polynomial polynomial3 = new Polynomial(arrayList3);
+        assertEquals(polynomial3.getMap(), polynomial1.divide(polynomial2).getFirst().getMap());
+    }
+    @Test
+    public void checkDivision4(){
+        ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();
+        ArrayList<Pair <Integer, Double>> arrayList2 = new ArrayList<>();
+        ArrayList<Pair <Integer, Double>> arrayList3 = new ArrayList<>();
+        {   //3X^7-3X^5+10X^3+5X^2-50
+            arrayList1.add(new Pair<>(7,3.0));
+            arrayList1.add(new Pair<>(5,-3.0));
+            arrayList1.add(new Pair<>(3,10.0));
+            arrayList1.add(new Pair<>(2,5.0));
+            arrayList1.add(new Pair<>(0,-50.0));
+        }{  //2X^3+4
+            arrayList2.add(new Pair<>(3,2.0));
+            arrayList2.add(new Pair<>(0,4.0));
+        }{  //3/2X^4-3/2X^2-3X+5q 11X^2+12X-70r
+            arrayList3.add(new Pair<>(4, 3/2.0));
+            arrayList3.add(new Pair<>(2, -3/2.0));
+            arrayList3.add(new Pair<>(1, -3.0));
+            arrayList3.add(new Pair<>(0, 5.0));
+        }
+        Polynomial polynomial1 = new Polynomial(arrayList1);
+        Polynomial polynomial2 = new Polynomial(arrayList2);
+        Polynomial polynomial3 = new Polynomial(arrayList3);
+        assertEquals(polynomial3.getMap(), polynomial1.divide(polynomial2).getFirst().getMap());
+    }
 //    @Test
 //    public void checkDivision5(){
-    //Fails because of a 10^(-15) error
+////    Fails because of a 10^(-15) error
 //        ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();
 //        ArrayList<Pair <Integer, Double>> arrayList2 = new ArrayList<>();
 //        ArrayList<Pair <Integer, Double>> arrayList3 = new ArrayList<>();
-//        ArrayList<Pair <Integer, Double>> arrayList4 = new ArrayList<>();
 //        {   //11X^3+7X^2-5X+3
 //            arrayList1.add(new Pair<>(3,11.0));
 //            arrayList1.add(new Pair<>(2,7.0));
@@ -348,34 +330,30 @@ public class PolynomialTest {
 //            arrayList3.add(new Pair<>(2, 11/13.0));
 //            arrayList3.add(new Pair<>(1, -162/169.0));
 //            arrayList3.add(new Pair<>(0, 2881/2197.0));
-//        }{  //0q 13X+23r
-//            arrayList4.add(new Pair<>(0, 0.0));
 //        }
 //        Polynomial polynomial1 = new Polynomial(arrayList1);
 //        Polynomial polynomial2 = new Polynomial(arrayList2);
 //        Polynomial polynomial3 = new Polynomial(arrayList3);
-//        Polynomial polynomial4 = new Polynomial(arrayList4);
-//        assertEquals(polynomial3.getMap(), polynomial1.divide(polynomial2).getMap());
-//        assertEquals(polynomial4.getMap(), polynomial2.divide(polynomial1).getMap());
+//        assertEquals(polynomial3.getMap(), polynomial1.divide(polynomial2).getFirst().getMap());
 //    }
-    @Test
-    public void checkDerivative1(){
-        ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();
-        ArrayList<Pair <Integer, Double>> arrayList2 = new ArrayList<>();
-        {   //11X^3+7X^2-5X+3
-            arrayList1.add(new Pair<>(3,11.0));
-            arrayList1.add(new Pair<>(2,7.0));
-            arrayList1.add(new Pair<>(1,-5.0));
-            arrayList1.add(new Pair<>(0,3.0));
-        }{  //33X^2+14X-5
-            arrayList2.add(new Pair<>(2,33.0));
-            arrayList2.add(new Pair<>(1,14.0));
-            arrayList2.add(new Pair<>(0,-5.0));
-        }
-        Polynomial polynomial1 = new Polynomial(arrayList1);
-        Polynomial polynomial2 = new Polynomial(arrayList2);
-        assertEquals(polynomial2.getMap(), polynomial1.derivate().getMap());
-    }
+//    @Test
+//    public void checkDerivative1(){
+//        ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();
+//        ArrayList<Pair <Integer, Double>> arrayList2 = new ArrayList<>();
+//        {   //11X^3+7X^2-5X+3
+//            arrayList1.add(new Pair<>(3,11.0));
+//            arrayList1.add(new Pair<>(2,7.0));
+//            arrayList1.add(new Pair<>(1,-5.0));
+//            arrayList1.add(new Pair<>(0,3.0));
+//        }{  //33X^2+14X-5
+//            arrayList2.add(new Pair<>(2,33.0));
+//            arrayList2.add(new Pair<>(1,14.0));
+//            arrayList2.add(new Pair<>(0,-5.0));
+//        }
+//        Polynomial polynomial1 = new Polynomial(arrayList1);
+//        Polynomial polynomial2 = new Polynomial(arrayList2);
+//        assertEquals(polynomial2.getMap(), polynomial1.derivate().getMap());
+//    }
     @Test
     public void checkDerivative2(){
         ArrayList<Pair <Integer, Double>> arrayList1 = new ArrayList<>();

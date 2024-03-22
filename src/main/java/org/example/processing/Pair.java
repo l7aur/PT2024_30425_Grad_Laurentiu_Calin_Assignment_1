@@ -8,12 +8,22 @@ public class Pair<T, G> {
         this.first = first;
         this.second = second;
     }
+    public Pair() {
+        this.first = null;
+        this.second = null;
+    }
     public T getFirst() {
         return first;
     }
-
     public G getSecond() {
         return second;
     }
 
+    public void setFirst(T first) {
+        this.first = first;
+    }
+
+    public void setSecond(G second) {
+        this.second = second;
+    }
 }
