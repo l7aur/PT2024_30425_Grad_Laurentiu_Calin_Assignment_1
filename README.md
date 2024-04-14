@@ -33,8 +33,10 @@ The polynomial calculator is designed to perform the operations mentioned in the
 - By the time the result is displayed the calculator is ready to perform a new one, so the user is free to go back to step b)
 
 The user diagram describes the dependencies between the user’s interactions and the system the polynomial calculator is. The aim of the user is to compute the result of one of the mentioned operations, but the system does not let him do this unless the parameters are provided. At the same time, for enhanced development possibilities the functionality of the application is divided into two: the operations performed on a single polynomial and the operations that require two polynomials. These two are the extensions of the general functionality of the calculator. The current user represents the only human instance needed.
- 
- ![image](https://github.com/l7aur/Polynomial-Calculator/assets/81981519/c961eef2-b73b-4fa0-b919-6664625daa8d)
+
+ <p align="center">
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/c961eef2-b73b-4fa0-b919-6664625daa8d" />
+</p>
 
 ## 3. Design
 
