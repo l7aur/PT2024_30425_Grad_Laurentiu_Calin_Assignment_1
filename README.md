@@ -51,8 +51,10 @@ The frontend package is divided based on a layout of slices. Each object in the 
 
 <p align="center">
   <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/fc4b48e3-f434-42fc-a2a1-32ae1a747202" alt="The UML diagram of the application"/>
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/18c6bd91-b969-4cbf-a7f4-094e66038032" alt="Class diagrams"/>
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/34d76f2d-b5b9-4132-addd-34be121de5c9" alt="Class diagrams"/>
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/18c6bd91-b969-4cbf-a7f4-094e66038032" alt="Class diagrams1"/>
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/34d76f2d-b5b9-4132-addd-34be121de5c9" alt="Class diagrams2"/>
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/23057cab-b796-42b5-b805-40cc4a282c5f" alt="App image1"/>
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/f3bef402-1c3b-4f0d-9282-b5778d30e037" alt="App image2"/>
 </p>
 
 ## Implementation
