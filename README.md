@@ -131,28 +131,27 @@ The tests and their results are discussed in depth in the Documentation. See [Se
 Working on this assignment felt great after two weeks of not keeping in touch with Java. The task itself was not that complex, but there were a lot of small things to keep track of. The real challenge was to break down the calculator itself into independent modules that can perform more general tasks or are (more or less) open to extension while keeping it simple and clear. I did not have a lot of fun while creating the graphical user interface, but, in the end, I feel like I am more aware of what layouts can do, how action listeners are supposed to be designed or how frames and panels interact. I practiced the decomposition of classes into subclasses and aimed the design short and effective methods that are more Java-like than C.
 	The final application is not the best it can be for sure. I consider its main defects to be the graphical user interface and the input-output polynomial representation. The GUI is simple and does its job, but it does not make anyone want to try or spend more time than needed with the application running. Its roughness is not a point of focus for a software engineer, but if it were to be used by any other people but engineers, no one would consider the way it looks appealing. It does compute correctly, though. At the same time, I hate the way I must insert polynomials as strings because I feel like I lose a lot of time searching for ^ or pressing shift + x for a capital letter. This input method should be optimized. The way the result is shown at output is not pleasant, as well. It seems too hard to follow even for me. 
 	Other further developments:
--	Improved GUI.
--	Improved class design.
--	Improved and simplified inter-class connections.
--	Improved, simplified, and more specialized intra-class connections.
--	New operations: negation & multiplying by a monomial (already implemented as private for subtraction), rising to a power, evaluation at a certain X value. 
--	Perfectioning the division operation so that it prints a polynomial in fractional form rather than decimal for superior precision.
--	Cleaner, more explicit code style.
+- Improved GUI.
+- Improved class design.
+- Improved and simplified inter-class connections.
+- Improved, simplified, and more specialized intra-class connections.
+- New operations: negation & multiplying by a monomial (already implemented as private for subtraction), rising to a power, evaluation at a certain X value. 
+- Perfectioning the division operation so that it prints a polynomial in fractional form rather than decimal for superior precision.
+- Cleaner, more explicit code style.
 
 ## References
--	[Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language)
--	[Use Case Diagrams | Unified Modeling Language (UML)](https://www.geeksforgeeks.org/use-case-diagram/)
+- [Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language)
+- [Use Case Diagrams | Unified Modeling Language (UML)](https://www.geeksforgeeks.org/use-case-diagram/)
 - [Draw.io](https://app.diagrams.net/)
--	[Use Case Diagram Tutorial](https://creately.com/guides/use-case-diagram-tutorial/)
--	[RegExr: Learn, Build, & Test RegEx](https://regexr.com/)
--	[regex101: build, test, and debug regex](https://regex101.com/)
--	[Regular expression - Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)
--	[StackOverflow](https://stackoverflow.com/questions/2420742/make-a-jlabel-wrap-its-text-by-setting-a-max-width)
--	[A Guide to JUnit 5](https://www.baeldung.com/junit-5)
--	[Polynomial Equation Calculator](https://www.symbolab.com/solver/polynomial-equation-calculator)
--	[A Visual Guide to Layout Managers](https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html#border)
--	[Microsoft Math Solver](https://mathsolver.microsoft.com/en/solve-problem/)
--	[Programming Techniques lectures, laboratories, and support materials](https://dsrl.eu/)
--	Paul Deitel, Harvey Deitel, Java How to program (10th edition), Publisher: Pearson Education, Inc., Upper Saddle River, NJ, United States, ISBN: 978-0-13-380780-6, Published: 2015
--	Ștefan Tanasă, Ștefan Andrei, Cristian Olaru, Java: de la 0 la expert (2nd edition), Publisher: Polirom, Iași, Romania, ISBN: 978-973-46-2405-8, Published: 2011
-
+- [Use Case Diagram Tutorial](https://creately.com/guides/use-case-diagram-tutorial/)
+- [RegExr: Learn, Build, & Test RegEx](https://regexr.com/)
+- [regex101: build, test, and debug regex](https://regex101.com/)
+- [Regular expression - Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)
+- [StackOverflow](https://stackoverflow.com/questions/2420742/make-a-jlabel-wrap-its-text-by-setting-a-max-width)
+- [A Guide to JUnit 5](https://www.baeldung.com/junit-5)
+- [Polynomial Equation Calculator](https://www.symbolab.com/solver/polynomial-equation-calculator)
+- [A Visual Guide to Layout Managers](https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html#border)
+- [Microsoft Math Solver](https://mathsolver.microsoft.com/en/solve-problem/)
+- [Fundamental Programming Techniques lectures, laboratories, and support materials](https://dsrl.eu/)
+- Paul Deitel, Harvey Deitel, Java How to program (10th edition), Publisher: Pearson Education, Inc., Upper Saddle River, NJ, United States, ISBN: 978-0-13-380780-6, Published: 2015
+- Ștefan Tanasă, Ștefan Andrei, Cristian Olaru, Java: de la 0 la expert (2nd edition), Publisher: Polirom, Iași, Romania, ISBN: 978-973-46-2405-8, Published: 2011
