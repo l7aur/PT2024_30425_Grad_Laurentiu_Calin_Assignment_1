@@ -9,16 +9,16 @@
 - [Conclusions](##Conclusions)
 - [References](##References)
 
-## 1. Assignment Objectives
+## Assignment Objectives
 The main objective of this assignment is to design and implement a polynomial calculator that can perform the following operations:
--	addition
+- addition
 - subtraction 
--	multiplication 
--	division
--	derivation
--	integration
+- multiplication 
+- division
+- derivation
+- integration
 
-## 2. Problem Analysis 
+## Problem Analysis 
 
 The problem is quite straightforward: we must create some sort of application that performs arithmetic and functional operations over polynomials. There is no need to develop or choose between algorithms for any of those operations because the brute force solution is optimal. Some abstraction is necessary: in mathematics a polynomial is represented as ∑_(k=0)^n▒〖a_k X^k 〗 where X is the unknown, a_k is the coefficient and k represents the power. This way of looking at a polynomial can be simplified drastically if we want to store it. Because all polynomials follow the same representation pattern, we can imagine them as vectors (arrays) of coefficients where the kth element is the integer that multiplies X^k in the mathematical expression. This means we must store only the coefficients of each polynomial in an abstract data type.
   
@@ -38,7 +38,7 @@ The user diagram describes the dependencies between the user’s interactions an
   <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/c961eef2-b73b-4fa0-b919-6664625daa8d" />
 </p>
 
-## 3. Design
+## Design
 
 I have chosen the classical approach in solving projects that require graphical user interfaces: the calculator is divided conceptually into two main directories – backend and frontend. The backend is where the processing and the computation happen and everything that is related to the appearance is grouped in the frontend package. 
 
@@ -47,7 +47,7 @@ The backend package consists of two abstract data types defined by me: String Po
 The frontend package is divided based on a layout of slices. Each object in the window acts as a stamp that is applied over the previous layer. This means there are 2 main panels: the InputPanel (pink background) and the ControlPanel (green background). In the InputPanel there are 2 other pane-like components: a ReadPanel that consists of two fields where the polynomials are supposed to be inserted and an OutputPanel where the result of the computation is displayed. The purpose of the ControlPanel is to house the 6 buttons that perform the operations enumerated in the first section. Each button is associated to an ActionListener that manages the interaction of the user with the medium of the application.
 
 
-## 4. Implementation
+## Implementation
 
 The implementation of the classes and of the main methods is discussed:
 
@@ -110,13 +110,13 @@ The class implements the ActionListener interface and makes the connection betwe
     -	.performCalc() is the method that decides which button has been pressed and what operation should be performed. Depending on that either one or both JTextFields are saved and converted into Polynomial-type objects. The requested operation is performed afterwards.  
 
 
-## 5. Results
+## Results
 
 All the mathematical functionalities have been tested and compared to human-computed results, double-checked by means of Microsoft web calculator. I aimed to take into consideration all critical cases such as multiplying by 0, integrating 0, dividing by 0 etc. I did not notice any erroneous computations for additions, subtractions, multiplications, integrations, or derivations. The only error I discovered in testing is caused by division, but I believe it is insignificant: when dividing polynomials whose division of coefficients generates irrational numbers (i.e. 2/3=0.66666… ) the representation in memory is, of course, truncated. This means the more operations the computer performs with this type of number the bigger the error becomes. In my test, after about three divisions and three multiplications (involving division by 13, 169 etc.) the error appeared to be in the range of ±3 in the order of the 16th digit (computationally speaking, this is a great and irrelevant approximation).
 
 The tests and their results are discussed in depth in the Documentation. See [Section 5 - "Results" here.](/Documentation.pdf)
 
-## 6. Conclusions
+## Conclusions
 
 Working on this assignment felt great after two weeks of not keeping in touch with Java. The task itself was not that complex, but there were a lot of small things to keep track of. The real challenge was to break down the calculator itself into independent modules that can perform more general tasks or are (more or less) open to extension while keeping it simple and clear. I did not have a lot of fun while creating the graphical user interface, but, in the end, I feel like I am more aware of what layouts can do, how action listeners are supposed to be designed or how frames and panels interact. I practiced the decomposition of classes into subclasses and aimed the design short and effective methods that are more Java-like than C.
 	The final application is not the best it can be for sure. I consider its main defects to be the graphical user interface and the input-output polynomial representation. The GUI is simple and does its job, but it does not make anyone want to try or spend more time than needed with the application running. Its roughness is not a point of focus for a software engineer, but if it were to be used by any other people but engineers, no one would consider the way it looks appealing. It does compute correctly, though. At the same time, I hate the way I must insert polynomials as strings because I feel like I lose a lot of time searching for ^ or pressing shift + x for a capital letter. This input method should be optimized. The way the result is shown at output is not pleasant, as well. It seems too hard to follow even for me. 
@@ -129,7 +129,7 @@ Working on this assignment felt great after two weeks of not keeping in touch wi
 -	Perfectioning the division operation so that it prints a polynomial in fractional form rather than decimal for superior precision.
 -	Cleaner, more explicit code style.
 
-## 7. References
+## References
 -	[Unified Modeling Language](https://en.wikipedia.org/wiki/Unified_Modeling_Language)
 -	[Use Case Diagrams | Unified Modeling Language (UML)](https://www.geeksforgeeks.org/use-case-diagram/)
 - [Draw.io](https://app.diagrams.net/)
