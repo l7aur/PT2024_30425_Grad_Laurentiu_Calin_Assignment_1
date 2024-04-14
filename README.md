@@ -1,4 +1,7 @@
 # PolynomialCalculator
+
+More explanations can be found [here](/Documentation.pdf). 
+
 ## Table of Contents
 
 - [Assignment Objectives](#Assignment-Objectives)
