@@ -35,7 +35,7 @@ The polynomial calculator is designed to perform the operations mentioned in the
 The user diagram describes the dependencies between the user’s interactions and the system the polynomial calculator is. The aim of the user is to compute the result of one of the mentioned operations, but the system does not let him do this unless the parameters are provided. At the same time, for enhanced development possibilities the functionality of the application is divided into two: the operations performed on a single polynomial and the operations that require two polynomials. These two are the extensions of the general functionality of the calculator. The current user represents the only human instance needed.
 
 <p align="center">
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/c961eef2-b73b-4fa0-b919-6664625daa8d" />
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/c961eef2-b73b-4fa0-b919-6664625daa8d" alt="The use case diagram"/>
 </p>
 
 ## Design
@@ -47,9 +47,9 @@ The backend package consists of two abstract data types defined by me: String Po
 The frontend package is divided based on a layout of slices. Each object in the window acts as a stamp that is applied over the previous layer. This means there are 2 main panels: the InputPanel (pink background) and the ControlPanel (green background). In the InputPanel there are 2 other pane-like components: a ReadPanel that consists of two fields where the polynomials are supposed to be inserted and an OutputPanel where the result of the computation is displayed. The purpose of the ControlPanel is to house the 6 buttons that perform the operations enumerated in the first section. Each button is associated to an ActionListener that manages the interaction of the user with the medium of the application.
 
 <p align="center">
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/fc4b48e3-f434-42fc-a2a1-32ae1a747202" />
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/18c6bd91-b969-4cbf-a7f4-094e66038032" />
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/34d76f2d-b5b9-4132-addd-34be121de5c9" />
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/fc4b48e3-f434-42fc-a2a1-32ae1a747202" alt="The UML diagram of the application"/>
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/18c6bd91-b969-4cbf-a7f4-094e66038032" alt="Class diagrams"/>
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/34d76f2d-b5b9-4132-addd-34be121de5c9" alt="Class diagrams"/>
 </p>
 
 ## Implementation
