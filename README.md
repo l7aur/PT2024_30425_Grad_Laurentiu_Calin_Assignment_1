@@ -48,13 +48,9 @@ The frontend package is divided based on a layout of slices. Each object in the 
 
 <p align="center">
   <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/fc4b48e3-f434-42fc-a2a1-32ae1a747202" />
-</p>
-<p align="center">
   <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/18c6bd91-b969-4cbf-a7f4-094e66038032" />
-</p>
-<p align="center">
   <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/34d76f2d-b5b9-4132-addd-34be121de5c9" />
- </p>
+</p>
 
 ## Implementation
 
