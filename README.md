@@ -1,13 +1,13 @@
 # PolynomialCalculator
 ## Table of Contents
 
-[Assignment Objectives](##Assignment-Objectives)
-[Problem Analysis](##Problem-analysis)
-[Design](##Design)
-[Implementation](##Implementation)
-[Results](##Results)
-[Conclusions](##Conclusions)
-[References](##References)
+- [Assignment Objectives](##Assignment-Objectives)
+- [Problem Analysis](##Problem-analysis)
+- [Design](##Design)
+- [Implementation](##Implementation)
+- [Results](##Results)
+- [Conclusions](##Conclusions)
+- [References](##References)
 
 ## 1. Assignment Objectives
 The main objective of this assignment is to design and implement a polynomial calculator that can perform the following operations:
