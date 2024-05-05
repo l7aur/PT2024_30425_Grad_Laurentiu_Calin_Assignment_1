@@ -145,7 +145,7 @@ Working on this assignment felt great after two weeks of not keeping in touch wi
 - Paul Deitel, Harvey Deitel, Java How to program (10th edition), Publisher: Pearson Education, Inc., Upper Saddle River, NJ, United States, ISBN: 978-0-13-380780-6, Published: 2015
 - Ștefan Tanasă, Ștefan Andrei, Cristian Olaru, Java: de la 0 la expert (2nd edition), Publisher: Polirom, Iași, Romania, ISBN: 978-973-46-2405-8, Published: 2011
 
-## Picures
+## Pictures
   
 <p align="center">
   <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/23057cab-b796-42b5-b805-40cc4a282c5f" alt="App image1"/>
