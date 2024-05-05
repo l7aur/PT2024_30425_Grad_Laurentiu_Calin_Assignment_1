@@ -11,7 +11,8 @@ More explanations can be found [here](/Documentation.pdf).
 - [Results](#Results)
 - [Conclusions](#Conclusions)
 - [References](#References)
-
+- [Pictures](#Pictures)
+  
 ## Assignment Objectives
 The main objective of this assignment is to design and implement a polynomial calculator that can perform the following operations:
 - addition
@@ -37,10 +38,6 @@ The polynomial calculator is designed to perform the operations mentioned in the
 
 The user diagram describes the dependencies between the user’s interactions and the system the polynomial calculator is. The aim of the user is to compute the result of one of the mentioned operations, but the system does not let him do this unless the parameters are provided. At the same time, for enhanced development possibilities the functionality of the application is divided into two: the operations performed on a single polynomial and the operations that require two polynomials. These two are the extensions of the general functionality of the calculator. The current user represents the only human instance needed.
 
-<p align="center">
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/c961eef2-b73b-4fa0-b919-6664625daa8d" alt="The use case diagram"/>
-</p>
-
 ## Design
 
 I have chosen the classical approach in solving projects that require graphical user interfaces: the calculator is divided conceptually into two main directories – backend and frontend. The backend is where the processing and the computation happen and everything that is related to the appearance is grouped in the frontend package. 
@@ -48,14 +45,6 @@ I have chosen the classical approach in solving projects that require graphical 
 The backend package consists of two abstract data types defined by me: String Polynomial and Polynomial. In addition to these there are two other classes that I regard as utility resources: Pair and Pattern. My implementation requires all these to convert the input polynomial into an array of coefficients. 
 
 The frontend package is divided based on a layout of slices. Each object in the window acts as a stamp that is applied over the previous layer. This means there are 2 main panels: the InputPanel (pink background) and the ControlPanel (green background). In the InputPanel there are 2 other pane-like components: a ReadPanel that consists of two fields where the polynomials are supposed to be inserted and an OutputPanel where the result of the computation is displayed. The purpose of the ControlPanel is to house the 6 buttons that perform the operations enumerated in the first section. Each button is associated to an ActionListener that manages the interaction of the user with the medium of the application.
-
-<p align="center">
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/fc4b48e3-f434-42fc-a2a1-32ae1a747202" alt="The UML diagram of the application"/>
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/18c6bd91-b969-4cbf-a7f4-094e66038032" alt="Class diagrams1"/>
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/34d76f2d-b5b9-4132-addd-34be121de5c9" alt="Class diagrams2"/>
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/23057cab-b796-42b5-b805-40cc4a282c5f" alt="App image1"/>
-  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/f3bef402-1c3b-4f0d-9282-b5778d30e037" alt="App image2"/>
-</p>
 
 ## Implementation
 
@@ -155,3 +144,10 @@ Working on this assignment felt great after two weeks of not keeping in touch wi
 - [Fundamental Programming Techniques lectures, laboratories, and support materials](https://dsrl.eu/)
 - Paul Deitel, Harvey Deitel, Java How to program (10th edition), Publisher: Pearson Education, Inc., Upper Saddle River, NJ, United States, ISBN: 978-0-13-380780-6, Published: 2015
 - Ștefan Tanasă, Ștefan Andrei, Cristian Olaru, Java: de la 0 la expert (2nd edition), Publisher: Polirom, Iași, Romania, ISBN: 978-973-46-2405-8, Published: 2011
+
+## Picures
+  
+<p align="center">
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/23057cab-b796-42b5-b805-40cc4a282c5f" alt="App image1"/>
+  <img src="https://github.com/l7aur/Polynomial-Calculator/assets/81981519/f3bef402-1c3b-4f0d-9282-b5778d30e037" alt="App image2"/>
+</p>
